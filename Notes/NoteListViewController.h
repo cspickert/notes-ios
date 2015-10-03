@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class NoteStore;
+
 @interface NoteListViewController : UITableViewController
+
+@property (nonatomic) NoteStore *store;
 
 @end

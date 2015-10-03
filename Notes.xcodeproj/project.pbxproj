@@ -16,6 +16,8 @@
 		7E69F1C91BBF5A8800367B0A /* NoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E69F1C71BBF5A8800367B0A /* NoteDetailViewController.m */; };
 		7E69F1CC1BBF5CCD00367B0A /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E69F1CB1BBF5CCD00367B0A /* Note.m */; };
 		7E69F1D21BBF5FC000367B0A /* NoteListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E69F1D01BBF5FC000367B0A /* NoteListItem.m */; };
+		7EDE4ACE1BBF75EF00A8AA55 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7EDE4ACC1BBF75EF00A8AA55 /* Model.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
+		7EDE4AD11BBF795000A8AA55 /* NotesDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDE4AD01BBF795000A8AA55 /* NotesDocument.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,9 @@
 		7E69F1CB1BBF5CCD00367B0A /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		7E69F1D01BBF5FC000367B0A /* NoteListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteListItem.m; sourceTree = "<group>"; };
 		7E69F1D11BBF5FC000367B0A /* NoteListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteListItem.h; sourceTree = "<group>"; };
+		7EDE4ACD1BBF75EF00A8AA55 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		7EDE4ACF1BBF795000A8AA55 /* NotesDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesDocument.h; sourceTree = "<group>"; };
+		7EDE4AD01BBF795000A8AA55 /* NotesDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesDocument.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +88,9 @@
 				7E69F1D01BBF5FC000367B0A /* NoteListItem.m */,
 				7E69F1A51BBF59D300367B0A /* NoteListViewController.h */,
 				7E69F1A61BBF59D300367B0A /* NoteListViewController.m */,
+				7EDE4ACF1BBF795000A8AA55 /* NotesDocument.h */,
+				7EDE4AD01BBF795000A8AA55 /* NotesDocument.m */,
+				7EDE4ACC1BBF75EF00A8AA55 /* Model.xcdatamodeld */,
 				7E69F19E1BBF59D300367B0A /* Supporting Files */,
 			);
 			path = Notes;
@@ -186,7 +194,9 @@
 			files = (
 				7E69F1C91BBF5A8800367B0A /* NoteDetailViewController.m in Sources */,
 				7E69F1D21BBF5FC000367B0A /* NoteListItem.m in Sources */,
+				7EDE4AD11BBF795000A8AA55 /* NotesDocument.m in Sources */,
 				7E69F1A71BBF59D300367B0A /* NoteListViewController.m in Sources */,
+				7EDE4ACE1BBF75EF00A8AA55 /* Model.xcdatamodeld in Sources */,
 				7E69F1A41BBF59D300367B0A /* AppDelegate.m in Sources */,
 				7E69F1CC1BBF5CCD00367B0A /* Note.m in Sources */,
 				7E69F1A11BBF59D300367B0A /* main.m in Sources */,
@@ -340,6 +350,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7EDE4ACC1BBF75EF00A8AA55 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7EDE4ACD1BBF75EF00A8AA55 /* Model.xcdatamodel */,
+			);
+			currentVersion = 7EDE4ACD1BBF75EF00A8AA55 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7E69F1931BBF59D300367B0A /* Project object */;
 }

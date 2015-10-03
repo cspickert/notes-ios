@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Cameron Spickert. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface Note : NSObject
+@interface Note : NSManagedObject
 
-@property (nonatomic, copy) NSString *text;
+@property (nonatomic) NSString *text;
 
 @property (nonatomic, readonly, getter=isEmpty) BOOL empty;
 

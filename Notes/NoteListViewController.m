@@ -10,10 +10,12 @@
 #import "NoteDetailViewController.h"
 #import "Note.h"
 #import "NoteListItem.h"
+#import "NotesDocument.h"
 
-@interface NoteListViewController ()
+@interface NoteListViewController () <NSFetchedResultsControllerDelegate>
 
-@property (nonatomic, copy) NSArray *notes;
+@property (nonatomic) NotesDocument *document;
+@property (nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
@@ -28,6 +30,33 @@
 
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.tableView.rowHeight = 56;
+
+    NSURL *fileURL = [self documentFileURL];
+
+    NotesDocument *document = [[NotesDocument alloc] initWithFileURL:fileURL];
+    self.document = document;
+
+    void (^completion)(BOOL) = ^(BOOL success) {
+        if (success) {
+            NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Note"];
+            fetchRequest.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"text" ascending:NO] ];
+
+            NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:document.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+            fetchedResultsController.delegate = self;
+            self.fetchedResultsController = fetchedResultsController;
+
+            [fetchedResultsController performFetch:NULL];
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"Error opening document!");
+        }
+    };
+
+    if ([[NSFileManager defaultManager] fileExistsAtPath:fileURL.path]) {
+        [document openWithCompletionHandler:completion];
+    } else {
+        [document saveToURL:fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:completion];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -42,6 +71,7 @@
     [super viewDidAppear:animated];
 
     [self removeEmptyNotes:animated];
+    [self saveNotes];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -50,15 +80,14 @@
         NoteDetailViewController *detailController = (NoteDetailViewController *)segue.destinationViewController;
 
         NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
-        detailController.note = self.notes[indexPath.row];
+        detailController.note = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
     } else if ([segue.identifier isEqualToString:@"CreateNote"]) {
         NoteDetailViewController *detailController = (NoteDetailViewController *)segue.destinationViewController;
 
-        Note *note = [[Note alloc] init];
-        self.notes = [@[ note ] arrayByAddingObjectsFromArray:self.notes];
-
-        [self.tableView insertRowsAtIndexPaths:@[ [NSIndexPath indexPathForRow:0 inSection:0] ] withRowAnimation:UITableViewRowAnimationAutomatic];
+        Note *note = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:self.document.managedObjectContext];
+        [self.document updateChangeCount:UIDocumentChangeDone];
+        [self saveNotes];
 
         detailController.note = note;
     }
@@ -69,14 +98,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.notes.count;
+    id<NSFetchedResultsSectionInfo> sectionInfo = self.fetchedResultsController.sections[section];
+    return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NoteCell"];
 
-    Note *note = self.notes[indexPath.row];
+    Note *note = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
     NoteListItem *noteItem = [[NoteListItem alloc] initWithText:note.text];
     cell.textLabel.text = noteItem.titleText;
@@ -93,34 +123,79 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSMutableArray *notes = [self.notes mutableCopy];
-        [notes removeObjectAtIndex:indexPath.row];
-        self.notes = notes;
-
-        [tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+        Note *note = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [note.managedObjectContext deleteObject:note];
+        [self.document updateChangeCount:UIDocumentChangeDone];
+        [self saveNotes];
     }
+}
+
+#pragma mark -
+#pragma mark Fetched results controller methods
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
+{
+    [self.tableView beginUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
+{
+    switch (type) {
+        case NSFetchedResultsChangeDelete: {
+            [self.tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+        }
+        case NSFetchedResultsChangeInsert: {
+            [self.tableView insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+        }
+        case NSFetchedResultsChangeUpdate: {
+            [self.tableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationNone];
+            break;
+        }
+        default: {
+            break;
+        }
+    }
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [self.tableView endUpdates];
 }
 
 #pragma mark -
 #pragma mark Helpers
 
+- (NSURL *)documentFileURL
+{
+    return [[[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:NULL] URLByAppendingPathComponent:@"Notes.sqlite"];
+}
+
 - (void)removeEmptyNotes:(BOOL)animated
 {
-    NSMutableIndexSet *indexesToRemove = [NSMutableIndexSet indexSet];
-    NSMutableArray *indexPathsToRemove = [NSMutableArray array];
+    if (self.fetchedResultsController == nil) {
+        return;
+    }
 
-    [self.notes enumerateObjectsUsingBlock:^(Note *note, NSUInteger idx, BOOL *stop) {
+    NSFetchRequest *fetchRequest = [[self.fetchedResultsController fetchRequest] copy];
+
+    NSArray *allNotes = [self.document.managedObjectContext executeFetchRequest:fetchRequest error:NULL];
+    for (Note *note in allNotes) {
         if (note.isEmpty) {
-            [indexesToRemove addIndex:idx];
-            [indexPathsToRemove addObject:[NSIndexPath indexPathForRow:idx inSection:0]];
+            [note.managedObjectContext deleteObject:note];
+            [self.document updateChangeCount:UIDocumentChangeDone];
+        }
+    }
+}
+
+- (void)saveNotes
+{
+    [self.document savePresentedItemChangesWithCompletionHandler:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"Error saving notes: %@", error);
         }
     }];
-
-    NSMutableArray *notes = [self.notes mutableCopy];
-    [notes removeObjectsAtIndexes:indexesToRemove];
-    self.notes = notes;
-
-    [self.tableView deleteRowsAtIndexPaths:indexPathsToRemove withRowAnimation:animated ? UITableViewRowAnimationAutomatic : UITableViewRowAnimationNone];
 }
 
 @end

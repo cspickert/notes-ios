@@ -10,6 +10,7 @@
 
 @implementation Note
 
+@dynamic text;
 @dynamic empty;
 
 - (BOOL)isEmpty
