@@ -9,22 +9,14 @@
 /* Begin PBXBuildFile section */
 		7E69F1A11BBF59D300367B0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E69F1A01BBF59D300367B0A /* main.m */; };
 		7E69F1A41BBF59D300367B0A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E69F1A31BBF59D300367B0A /* AppDelegate.m */; };
-		7E69F1A71BBF59D300367B0A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E69F1A61BBF59D300367B0A /* ViewController.m */; };
+		7E69F1A71BBF59D300367B0A /* NoteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E69F1A61BBF59D300367B0A /* NoteListViewController.m */; };
 		7E69F1AA1BBF59D300367B0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E69F1A81BBF59D300367B0A /* Main.storyboard */; };
 		7E69F1AC1BBF59D300367B0A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E69F1AB1BBF59D300367B0A /* Images.xcassets */; };
 		7E69F1AF1BBF59D300367B0A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E69F1AD1BBF59D300367B0A /* LaunchScreen.xib */; };
-		7E69F1BB1BBF59D300367B0A /* NotesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E69F1BA1BBF59D300367B0A /* NotesTests.m */; };
+		7E69F1C91BBF5A8800367B0A /* NoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E69F1C71BBF5A8800367B0A /* NoteDetailViewController.m */; };
+		7E69F1CC1BBF5CCD00367B0A /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E69F1CB1BBF5CCD00367B0A /* Note.m */; };
+		7E69F1D21BBF5FC000367B0A /* NoteListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E69F1D01BBF5FC000367B0A /* NoteListItem.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		7E69F1B51BBF59D300367B0A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7E69F1931BBF59D300367B0A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7E69F19A1BBF59D300367B0A;
-			remoteInfo = Notes;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		7E69F19B1BBF59D300367B0A /* Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,25 +24,23 @@
 		7E69F1A01BBF59D300367B0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7E69F1A21BBF59D300367B0A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7E69F1A31BBF59D300367B0A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7E69F1A51BBF59D300367B0A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7E69F1A61BBF59D300367B0A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7E69F1A51BBF59D300367B0A /* NoteListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoteListViewController.h; sourceTree = "<group>"; };
+		7E69F1A61BBF59D300367B0A /* NoteListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoteListViewController.m; sourceTree = "<group>"; };
 		7E69F1A91BBF59D300367B0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7E69F1AB1BBF59D300367B0A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7E69F1AE1BBF59D300367B0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		7E69F1B41BBF59D300367B0A /* NotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E69F1B91BBF59D300367B0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E69F1BA1BBF59D300367B0A /* NotesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotesTests.m; sourceTree = "<group>"; };
+		7E69F1C61BBF5A8800367B0A /* NoteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteDetailViewController.h; sourceTree = "<group>"; };
+		7E69F1C71BBF5A8800367B0A /* NoteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteDetailViewController.m; sourceTree = "<group>"; };
+		7E69F1CA1BBF5CCD00367B0A /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		7E69F1CB1BBF5CCD00367B0A /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		7E69F1D01BBF5FC000367B0A /* NoteListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteListItem.m; sourceTree = "<group>"; };
+		7E69F1D11BBF5FC000367B0A /* NoteListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteListItem.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		7E69F1981BBF59D300367B0A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7E69F1B11BBF59D300367B0A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -73,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				7E69F19B1BBF59D300367B0A /* Notes.app */,
-				7E69F1B41BBF59D300367B0A /* NotesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,11 +72,17 @@
 			children = (
 				7E69F1A21BBF59D300367B0A /* AppDelegate.h */,
 				7E69F1A31BBF59D300367B0A /* AppDelegate.m */,
-				7E69F1A51BBF59D300367B0A /* ViewController.h */,
-				7E69F1A61BBF59D300367B0A /* ViewController.m */,
-				7E69F1A81BBF59D300367B0A /* Main.storyboard */,
 				7E69F1AB1BBF59D300367B0A /* Images.xcassets */,
 				7E69F1AD1BBF59D300367B0A /* LaunchScreen.xib */,
+				7E69F1A81BBF59D300367B0A /* Main.storyboard */,
+				7E69F1CA1BBF5CCD00367B0A /* Note.h */,
+				7E69F1CB1BBF5CCD00367B0A /* Note.m */,
+				7E69F1C61BBF5A8800367B0A /* NoteDetailViewController.h */,
+				7E69F1C71BBF5A8800367B0A /* NoteDetailViewController.m */,
+				7E69F1D11BBF5FC000367B0A /* NoteListItem.h */,
+				7E69F1D01BBF5FC000367B0A /* NoteListItem.m */,
+				7E69F1A51BBF59D300367B0A /* NoteListViewController.h */,
+				7E69F1A61BBF59D300367B0A /* NoteListViewController.m */,
 				7E69F19E1BBF59D300367B0A /* Supporting Files */,
 			);
 			path = Notes;
@@ -139,39 +134,17 @@
 			productReference = 7E69F19B1BBF59D300367B0A /* Notes.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7E69F1B31BBF59D300367B0A /* NotesTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7E69F1C11BBF59D300367B0A /* Build configuration list for PBXNativeTarget "NotesTests" */;
-			buildPhases = (
-				7E69F1B01BBF59D300367B0A /* Sources */,
-				7E69F1B11BBF59D300367B0A /* Frameworks */,
-				7E69F1B21BBF59D300367B0A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7E69F1B61BBF59D300367B0A /* PBXTargetDependency */,
-			);
-			name = NotesTests;
-			productName = NotesTests;
-			productReference = 7E69F1B41BBF59D300367B0A /* NotesTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		7E69F1931BBF59D300367B0A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Cameron Spickert";
 				TargetAttributes = {
 					7E69F19A1BBF59D300367B0A = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					7E69F1B31BBF59D300367B0A = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 7E69F19A1BBF59D300367B0A;
 					};
 				};
 			};
@@ -189,7 +162,6 @@
 			projectRoot = "";
 			targets = (
 				7E69F19A1BBF59D300367B0A /* Notes */,
-				7E69F1B31BBF59D300367B0A /* NotesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -205,13 +177,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7E69F1B21BBF59D300367B0A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -219,29 +184,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E69F1A71BBF59D300367B0A /* ViewController.m in Sources */,
+				7E69F1C91BBF5A8800367B0A /* NoteDetailViewController.m in Sources */,
+				7E69F1D21BBF5FC000367B0A /* NoteListItem.m in Sources */,
+				7E69F1A71BBF59D300367B0A /* NoteListViewController.m in Sources */,
 				7E69F1A41BBF59D300367B0A /* AppDelegate.m in Sources */,
+				7E69F1CC1BBF5CCD00367B0A /* Note.m in Sources */,
 				7E69F1A11BBF59D300367B0A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7E69F1B01BBF59D300367B0A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7E69F1BB1BBF59D300367B0A /* NotesTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		7E69F1B61BBF59D300367B0A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7E69F19A1BBF59D300367B0A /* Notes */;
-			targetProxy = 7E69F1B51BBF59D300367B0A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7E69F1A81BBF59D300367B0A /* Main.storyboard */ = {
@@ -284,6 +236,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -349,6 +302,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Notes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cameronspickert.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -359,41 +313,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Notes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cameronspickert.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		7E69F1C21BBF59D300367B0A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = NotesTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Notes.app/Notes";
-			};
-			name = Debug;
-		};
-		7E69F1C31BBF59D300367B0A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = NotesTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Notes.app/Notes";
 			};
 			name = Release;
 		};
@@ -416,14 +337,7 @@
 				7E69F1C01BBF59D300367B0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		7E69F1C11BBF59D300367B0A /* Build configuration list for PBXNativeTarget "NotesTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7E69F1C21BBF59D300367B0A /* Debug */,
-				7E69F1C31BBF59D300367B0A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

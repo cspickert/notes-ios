@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  NoteListViewController.h
 //  Notes
 //
 //  Created by Cameron Spickert on 10/2/15.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface NoteListViewController : UITableViewController
 
 @end
-

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  NoteDetailViewController.h
 //  Notes
 //
 //  Created by Cameron Spickert on 10/2/15.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@class Note;
 
+@interface NoteDetailViewController : UIViewController
+
+@property (nonatomic) Note *note;
 
 @end
-
