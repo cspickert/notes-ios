@@ -153,7 +153,8 @@
             [self.tableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationNone];
             break;
         }
-        default: {
+        case NSFetchedResultsChangeMove: {
+            [self.tableView moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
             break;
         }
     }
