@@ -11,6 +11,7 @@
 @interface NoteListItem ()
 
 @property (nonatomic, copy) NSArray *lines;
+@property (nonatomic) NSDate *timestamp;
 
 @end
 
@@ -19,10 +20,11 @@
 @dynamic titleText;
 @dynamic subtitleText;
 
-- (instancetype)initWithText:(NSString *)text
+- (instancetype)initWithText:(NSString *)text timestamp:(NSDate *)timestamp
 {
     if ((self = [super init])) {
         self.lines = [[text componentsSeparatedByString:@"\n"] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"length > 0"]];
+        self.timestamp = timestamp;
     }
     return self;
 }
@@ -37,10 +39,19 @@
 
 - (NSString *)subtitleText
 {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateStyle = NSDateFormatterShortStyle;
+
+    NSString *subtitleText = nil;
     if (self.lines.count < 2) {
-        return [self defaultSubtitleText];
+        subtitleText = [self defaultSubtitleText];
+    } else {
+        subtitleText = self.lines[1];
     }
-    return self.lines[1];
+
+    NSString *timestampString = [dateFormatter stringFromDate:self.timestamp];
+
+    return [NSString stringWithFormat:@"%@ – %@", timestampString, subtitleText];
 }
 
 - (NSString *)defaultTitleText

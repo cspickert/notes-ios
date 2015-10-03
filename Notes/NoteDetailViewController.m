@@ -73,6 +73,7 @@
 - (void)saveNoteText
 {
     self.note.text = self.textView.text;
+    self.note.timestamp = [NSDate date];
 }
 
 @end

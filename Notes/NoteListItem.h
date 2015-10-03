@@ -13,6 +13,6 @@
 @property (nonatomic, readonly) NSString *titleText;
 @property (nonatomic, readonly) NSString *subtitleText;
 
-- (instancetype)initWithText:(NSString *)text;
+- (instancetype)initWithText:(NSString *)text timestamp:(NSDate *)timestamp;
 
 @end

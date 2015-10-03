@@ -11,6 +11,7 @@
 @interface Note : NSManagedObject
 
 @property (nonatomic) NSString *text;
+@property (nonatomic) NSDate *timestamp;
 
 @property (nonatomic, readonly, getter=isEmpty) BOOL empty;
 

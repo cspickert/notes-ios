@@ -11,7 +11,15 @@
 @implementation Note
 
 @dynamic text;
+@dynamic timestamp;
 @dynamic empty;
+
+- (void)awakeFromInsert
+{
+    [super awakeFromInsert];
+
+    self.timestamp = [NSDate date];
+}
 
 - (BOOL)isEmpty
 {

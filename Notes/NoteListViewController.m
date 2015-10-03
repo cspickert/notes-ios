@@ -39,7 +39,7 @@
     void (^completion)(BOOL) = ^(BOOL success) {
         if (success) {
             NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Note"];
-            fetchRequest.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"text" ascending:NO] ];
+            fetchRequest.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:NO] ];
 
             NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:document.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
             fetchedResultsController.delegate = self;
@@ -108,7 +108,7 @@
 
     Note *note = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
-    NoteListItem *noteItem = [[NoteListItem alloc] initWithText:note.text];
+    NoteListItem *noteItem = [[NoteListItem alloc] initWithText:note.text timestamp:note.timestamp];
     cell.textLabel.text = noteItem.titleText;
     cell.detailTextLabel.text = noteItem.subtitleText;
 

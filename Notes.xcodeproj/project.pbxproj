@@ -21,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E39D4961BC03E4F0033AD75 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		7E69F19B1BBF59D300367B0A /* Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E69F19F1BBF59D300367B0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E69F1A01BBF59D300367B0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -335,9 +336,10 @@
 		7EDE4ACC1BBF75EF00A8AA55 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				7E39D4961BC03E4F0033AD75 /* Model 2.xcdatamodel */,
 				7EDE4ACD1BBF75EF00A8AA55 /* Model.xcdatamodel */,
 			);
-			currentVersion = 7EDE4ACD1BBF75EF00A8AA55 /* Model.xcdatamodel */;
+			currentVersion = 7E39D4961BC03E4F0033AD75 /* Model 2.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
