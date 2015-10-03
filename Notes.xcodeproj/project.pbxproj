@@ -31,8 +31,6 @@
 		7E69F1A91BBF59D300367B0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7E69F1AB1BBF59D300367B0A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7E69F1AE1BBF59D300367B0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		7E69F1B91BBF59D300367B0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7E69F1BA1BBF59D300367B0A /* NotesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotesTests.m; sourceTree = "<group>"; };
 		7E69F1C61BBF5A8800367B0A /* NoteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteDetailViewController.h; sourceTree = "<group>"; };
 		7E69F1C71BBF5A8800367B0A /* NoteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteDetailViewController.m; sourceTree = "<group>"; };
 		7E69F1CA1BBF5CCD00367B0A /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
@@ -59,7 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				7E69F19D1BBF59D300367B0A /* Notes */,
-				7E69F1B71BBF59D300367B0A /* NotesTests */,
 				7E69F19C1BBF59D300367B0A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,23 +98,6 @@
 			children = (
 				7E69F19F1BBF59D300367B0A /* Info.plist */,
 				7E69F1A01BBF59D300367B0A /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		7E69F1B71BBF59D300367B0A /* NotesTests */ = {
-			isa = PBXGroup;
-			children = (
-				7E69F1BA1BBF59D300367B0A /* NotesTests.m */,
-				7E69F1B81BBF59D300367B0A /* Supporting Files */,
-			);
-			path = NotesTests;
-			sourceTree = "<group>";
-		};
-		7E69F1B81BBF59D300367B0A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				7E69F1B91BBF59D300367B0A /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
